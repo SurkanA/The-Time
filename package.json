@@ -1,0 +1,24 @@
+{
+  "name": "the-time",
+  "version": "1.0.0",
+  "description": "Basic clock page with UTC personalization",
+  "homepage": "https://github.com/SurkanA/The-Time#readme",
+  "bugs": {
+    "url": "https://github.com/SurkanA/The-Time/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SurkanA/The-Time.git"
+  },
+  "license": "MIT",
+  "author": "Agustin Surkan",
+  "type": "commonjs",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "dayjs": "^1.11.13",
+    "micromodal": "^0.4.10"
+  }
+}
