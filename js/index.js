@@ -1,25 +1,13 @@
 // DayJS
 dayjs.extend(dayjs_plugin_utc);
 dayjs.extend(dayjs_plugin_timezone);
-
+var utc = 0;
 // First second of the page
-if (localStorage.getItem("place") !== null) {
-  const place = localStorage.getItem("place");
-  document.getElementById("currentPlace").textContent += `${place}`;
-} else {
-  const place = dayjs.tz.guess();
-  document.getElementById("currentPlace").textContent += `${place}`;
-}
+const place = dayjs.tz.guess();
+document.getElementById("currentPlace").textContent += `${place}`;
 
-if (localStorage.getItem("utc") !== null) {
-  var utc = localStorage.getItem("utc");
-  const time = dayjs.utc().utcOffset(utc).format("HH:mm:ss");
-  document.getElementById("currentTime").textContent = `${time}`;
-} else {
-  var utc = 0;
-  const time = dayjs.utc().utcOffset(utc).format("HH:mm:ss");
-  document.getElementById("currentTime").textContent = `${time}`;
-}
+const time = dayjs.utc().utcOffset(utc).format("HH:mm:ss");
+document.getElementById("currentTime").textContent = `${time}`;
 
 const date = dayjs().utc().utcOffset(utc).format("dddd, DD MMMM YYYY");
 document.getElementById("currentDate").textContent = `${date}`;
@@ -153,5 +141,4 @@ document
         break;
     }
     localStorage.setItem("utc", utc);
-    localStorage.setItem("place", select.value);
   });
