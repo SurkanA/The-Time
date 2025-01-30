@@ -1,11 +1,12 @@
 // DayJS
 dayjs.extend(dayjs_plugin_utc);
 dayjs.extend(dayjs_plugin_timezone);
-var utc = 0;
+
 // First second of the page
 const place = dayjs.tz.guess();
 document.getElementById("currentPlace").textContent += `${place}`;
 
+let utc = 0;
 const time = dayjs.utc().utcOffset(utc).format("HH:mm:ss");
 document.getElementById("currentTime").textContent = `${time}`;
 
@@ -46,99 +47,50 @@ document
     document.getElementById("currentPlace").textContent = `${select.value}`;
     MicroModal.close("timezone-modal");
 
-    switch (document.getElementById("timezone-select").value) {
-      case "Pacific/Kiritimati":
-      case "Pacific/Apia":
-        utc = -11;
-        break;
-      case "Pacific/Honolulu":
-        utc = -10;
-        break;
-      case "Pacific/Anchorage":
-        utc = -9;
-        break;
-      case "America/Tijuana":
-      case "America/Los_Angeles":
-        utc = -8;
-        break;
-      case "America/Phoenix":
-      case "America/Denver":
-        utc = -7;
-        break;
-      case "America/Chicago":
-      case "America/Mexico_City":
-        utc = -6;
-        break;
-      case "America/New_York":
-      case "America/Bogota":
-      case "America/Lima":
-        utc = -5;
-        break;
-      case "America/Buenos_Aires":
-      case "America/Santiago":
-        utc = -3;
-        break;
-      case "America/Brasilia":
-        utc = -2;
-        break;
-      case "Atlantic/Azores":
-        utc = -1;
-        break;
-      case "Europe/London":
-        utc = 0;
-        break;
-      case "Europe/Berlin":
-      case "Europe/Madrid":
-      case "Europe/Paris":
-      case "Europe/Rome":
-        utc = 1;
-        break;
-      case "Europe/Istanbul":
-        utc = 2;
-        break;
-      case "Asia/Baghdad":
-      case "Asia/Tehran":
-        utc = 3;
-        break;
-      case "Asia/Dubai":
-      case "Asia/Kabul":
-        utc = 4;
-        break;
-      case "Asia/Karachi":
-      case "Asia/Colombo":
-      case "Asia/Kolkata":
-        utc = 5;
-        break;
-      case "Asia/Almaty":
-      case "Asia/Dhaka":
-        utc = 6;
-        break;
-      case "Asia/Yangon":
-      case "Asia/Jakarta":
-        utc = 7;
-        break;
-      case "Asia/Krasnoyarsk":
-      case "Asia/Shanghai":
-        utc = 8;
-        break;
-      case "Asia/Tokyo":
-      case "Asia/Seoul":
-        utc = 9;
-        break;
-      case "Australia/Perth":
-        utc = 8;
-        break;
-      case "Australia/Sydney":
-      case "Australia/Melbourne":
-      case "Australia/Brisbane":
-        utc = 10;
-        break;
-      case "Pacific/Auckland":
-        utc = 12;
-        break;
-      default:
-        utc = 0;
-        break;
-    }
-    localStorage.setItem("utc", utc);
+    const timezoneOffsets = {
+      "America/Tijuana": -8,
+      "America/Los_Angeles": -8,
+      "America/Phoenix": -7,
+      "America/Denver": -7,
+      "America/Chicago": -6,
+      "America/Mexico_City": -6,
+      "America/New_York": -5,
+      "America/Bogota": -5,
+      "America/Lima": -5,
+      "America/Caracas": -4,
+      "America/Santo_Domingo": -4,
+      "America/Buenos_Aires": -3,
+      "America/Santiago": -3,
+      "America/Brasilia": -2,
+      "Atlantic/Azores": -1,
+      "Europe/London": 0,
+      "Europe/Berlin": 1,
+      "Europe/Madrid": 1,
+      "Europe/Paris": 1,
+      "Europe/Rome": 1,
+      "Europe/Istanbul": 2,
+      "Asia/Baghdad": 3,
+      "Asia/Tehran": 3,
+      "Asia/Dubai": 4,
+      "Asia/Kabul": 4,
+      "Asia/Karachi": 5,
+      "Asia/Colombo": 5,
+      "Asia/Kolkata": 5,
+      "Asia/Almaty": 6,
+      "Asia/Dhaka": 6,
+      "Asia/Yangon": 7,
+      "Asia/Jakarta": 7,
+      "Asia/Krasnoyarsk": 8,
+      "Asia/Shanghai": 8,
+      "Asia/Tokyo": 9,
+      "Asia/Seoul": 9,
+      "Australia/Sydney": 10,
+      "Australia/Melbourne": 10,
+      "Australia/Brisbane": 10,
+      "Australia/Hobart": 11,
+      "Australia/Lord_Howe": 11,
+    };
+
+    utc =
+      timezoneOffsets[document.getElementById("timezone-select").value] || 0;
   });
