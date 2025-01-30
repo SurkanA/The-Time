@@ -81,9 +81,7 @@ button {
   width: 300px;
 }
 
-/**************************\
-    Basic Modal Styles
-  \**************************/
+/* MicroModal */
 
 .modal {
   font-family: "Montserrat";
@@ -181,9 +179,6 @@ button {
   color: #fff;
 }
 
-/**************************\
-    Demo Animation Style
-  \**************************/
 @keyframes mmfadeIn {
   from {
     opacity: 0;
