@@ -3,11 +3,18 @@ dayjs.extend(dayjs_plugin_utc);
 dayjs.extend(dayjs_plugin_timezone);
 
 // First second of the page
-const place = dayjs.tz.guess();
-document.getElementById("currentPlace").textContent += `${place}`;
+if (!localStorage.getItem("place")) {
+  const place = dayjs.tz.guess();
+  document.getElementById("currentPlace").textContent += `${place}`;
+} else {
+  const place = localStorage.getItem("place");
+  document.getElementById("currentPlace").textContent += `${place}`;
+}
 
-let utc = 0;
-const time = dayjs.utc().utcOffset(utc).format("HH:mm:ss");
+let utc = localStorage.getItem("utc")
+  ? parseInt(localStorage.getItem("utc"))
+  : 0;
+const time = dayjs().utc().utcOffset(utc).format("HH:mm:ss");
 document.getElementById("currentTime").textContent = `${time}`;
 
 const date = dayjs().utc().utcOffset(utc).format("dddd, DD MMMM YYYY");
@@ -15,7 +22,7 @@ document.getElementById("currentDate").textContent = `${date}`;
 
 // Update every second
 setInterval(() => {
-  const time = dayjs.utc().utcOffset(utc).format("HH:mm:ss");
+  const time = dayjs().utc().utcOffset(utc).format("HH:mm:ss");
   document.getElementById("currentTime").textContent = `${time}`;
 
   const date = dayjs().utc().utcOffset(utc).format("dddd, DD MMMM YYYY");
@@ -45,6 +52,7 @@ document
     const select = document.getElementById("timezone-select");
     // Update current place
     document.getElementById("currentPlace").textContent = `${select.value}`;
+    localStorage.setItem("place", select.value);
     MicroModal.close("timezone-modal");
 
     const timezoneOffsets = {
@@ -90,7 +98,7 @@ document
       "Australia/Hobart": 11,
       "Australia/Lord_Howe": 11,
     };
-
     utc =
       timezoneOffsets[document.getElementById("timezone-select").value] || 0;
+    localStorage.setItem("utc", utc);
   });
