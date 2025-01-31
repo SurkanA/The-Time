@@ -8,7 +8,7 @@ A simple web clock page, made with [DayJS](https://day.js.org/) and [Micromodal]
 
 ## Screenshot
 
-![Web Page Snapshot](https://github.com/user-attachments/assets/9e1e2727-063d-42c8-ae9a-a3454f3b1620)
+![Web Page Snapshot](https://github.com/user-attachments/assets/3181f635-1490-4e5c-b126-71500cefc4e6)
 
 ## Features
 
