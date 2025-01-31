@@ -202,3 +202,51 @@ button {
 .micromodal-slide[aria-hidden="true"] .modal__container {
   animation: 0.3s cubic-bezier(0, 0, 0.2, 1) mmslideOut;
 }
+
+@media only screen and (max-width: 768px) {
+  #currentPlace {
+    font-size: 25px;
+    margin-bottom: 40px;
+  }
+
+  #currentTime {
+    font-size: 100px;
+  }
+
+  #currentDate {
+    margin-top: 40px;
+    font-size: 25px;
+  }
+
+  svg {
+    width: 20px;
+    height: 20px;
+    color: #fff;
+    margin-left: 20px;
+    margin-bottom: 15px;
+  }
+}
+
+@media only screen and (max-width: 430px) {
+  #currentPlace {
+    font-size: 20px;
+    margin-bottom: 40px;
+  }
+
+  #currentTime {
+    font-size: 90px;
+  }
+
+  #currentDate {
+    margin-top: 40px;
+    font-size: 20px;
+  }
+
+  svg {
+    width: 15px;
+    height: 15px;
+    color: #fff;
+    margin-left: 20px;
+    margin-bottom: 20px;
+  }
+}
