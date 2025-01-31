@@ -12,7 +12,7 @@ A simple web clock page, made with [DayJS](https://day.js.org/) and [Micromodal]
 
 ## Features
 
-- Displays the current local time and day. (Amazing i know)
+- Displays the current time and date.
 - Allows users to personalize the time display in UTC.
 - Lightweight project. (24,2KB)
 
