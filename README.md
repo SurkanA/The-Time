@@ -2,12 +2,6 @@
 
 A simple web clock page, made with [DayJS](https://day.js.org/) and [Micromodal](https://micromodal.vercel.app/).
 
-- [Screenshot](#screenshot)
-- [Features](#features)
-- [Installation](#installation)
-
-## Screenshot
-
 ![Web Page Snapshot](https://github.com/user-attachments/assets/3181f635-1490-4e5c-b126-71500cefc4e6)
 
 ## Features
